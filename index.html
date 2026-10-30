@@ -86,7 +86,7 @@
   <header class="max-w-5xl mx-auto px-4 pt-16 sm:pt-24 pb-16 text-center">
     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-300 text-xs font-semibold mb-8 badge-shimmer">
       <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-      <span>Engineered for CAs, Financial Analysts, E-Commerce Sellers & Ops Teams</span>
+      <span>Engineered for CAs, Financial Analysts, E-Commerce Sellers &amp; Ops Teams</span>
     </div>
 
     <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1] max-w-4xl mx-auto">
@@ -102,8 +102,8 @@
       <a href="#install" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 font-bold text-base shadow-xl shadow-teal-500/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
         <span>⬇ Download Free Chrome Extension</span>
       </a>
-      <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-700/80 text-white font-semibold text-base transition flex items-center justify-center gap-2">
-        <span>Get Lifetime Pro Pass (₹299 / $19)</span>
+      <a id="heroBuyBtn" href="https://rzp.io/rzp/tablesnap-pro" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-700/80 text-white font-semibold text-base transition flex items-center justify-center gap-2">
+        <span id="heroBuyText">Get Lifetime Pro Pass (₹299)</span>
       </a>
     </div>
 
@@ -111,7 +111,7 @@
     <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
       <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> 100% Client-Side Privacy</span>
       <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> Zero Server Data Uploads</span>
-      <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> UTF-8 BOM (Preserves ₹ & Currency)</span>
+      <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> UTF-8 BOM (Preserves ₹ &amp; Currency)</span>
       <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> Razorpay Verified Merchant</span>
     </div>
   </header>
@@ -166,7 +166,7 @@
                 <th class="p-3.5">Invoice #</th>
                 <th class="p-3.5">Company / Vendor</th>
                 <th class="p-3.5">Category</th>
-                <th class="p-3.5">Amount (INR)</th>
+                <th class="p-3.5">Amount</th>
                 <th class="p-3.5">Status</th>
               </tr>
             </thead>
@@ -217,7 +217,7 @@
     </div>
   </section>
 
-  <!-- Problem vs Solution (Why This Tool Exists) -->
+  <!-- Problem vs Solution -->
   <section class="max-w-6xl mx-auto px-4 py-20">
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Why Professionals Choose TableSnap Pro</h2>
@@ -309,11 +309,21 @@
     </div>
   </section>
 
-  <!-- Pricing Section -->
+  <!-- Pricing Section with Dynamic Geo-Pricing & Currency Switcher -->
   <section id="pricing" class="max-w-5xl mx-auto px-4 py-20">
     <div class="text-center max-w-2xl mx-auto mb-14">
       <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Simple, Honest Pricing</h2>
       <p class="text-slate-400 text-sm mt-3">Try the free tier immediately. Upgrade once for lifetime unlimited exports.</p>
+      
+      <!-- Currency Toggle Switch -->
+      <div class="inline-flex items-center gap-1 p-1 bg-slate-900 border border-slate-800 rounded-xl mt-6">
+        <button id="toggleINR" class="px-4 py-1.5 rounded-lg text-xs font-bold transition bg-teal-500 text-slate-950">
+          🇮🇳 India (₹ INR)
+        </button>
+        <button id="toggleUSD" class="px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white">
+          🌍 Global ($ USD)
+        </button>
+      </div>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto items-stretch">
@@ -346,10 +356,10 @@
         <div>
           <span class="text-xs font-mono uppercase text-teal-300 tracking-wider">Professional Pro</span>
           <div class="mt-4 mb-2 flex items-baseline gap-2">
-            <span class="text-4xl font-black text-white">₹299</span>
-            <span class="text-slate-400 text-xs font-semibold">/ $19 USD (One-Time)</span>
+            <span id="proPriceDisplay" class="text-4xl font-black text-white">₹299</span>
+            <span id="proCurrencySub" class="text-slate-400 text-xs font-semibold">/ Lifetime (No Monthly Fees)</span>
           </div>
-          <p class="text-xs text-teal-200/70 mb-6">Pay once. Use forever. No monthly subscriptions.</p>
+          <p class="text-xs text-teal-200/70 mb-6">Pay once. Use forever. Billed directly to your bank account.</p>
           <ul class="space-y-3 text-xs text-slate-200">
             <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> <strong>Unlimited rows</strong> per table export (10,000+ rows)</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> <strong>Smart List Detector</strong> (e-comm/cards/grids)</li>
@@ -358,8 +368,8 @@
             <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> Priority email support from the founder</li>
           </ul>
         </div>
-        <a id="buyPassBtn" href="https://razorpay.com/" target="_blank" class="mt-8 block w-full py-3.5 text-center rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 text-xs font-black shadow-lg shadow-teal-500/20 transition transform hover:-translate-y-0.5">
-          Get Instant Lifetime Pro Key (₹299)
+        <a id="buyPassBtn" href="https://rzp.io/rzp/tablesnap-pro" target="_blank" class="mt-8 block w-full py-3.5 text-center rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 text-xs font-black shadow-lg shadow-teal-500/20 transition transform hover:-translate-y-0.5">
+          <span id="buyBtnLabel">Get Instant Lifetime Pro Key (₹299)</span>
         </a>
       </div>
     </div>
@@ -415,8 +425,59 @@
   </footer>
 
   <script>
+    // Live Razorpay Payment Links
+    const INR_LINK = "https://rzp.io/rzp/tablesnap-pro";
+    const USD_LINK = "https://rzp.io/rzp/tablesnap-pro-usd";
+
+    function setPricing(currency) {
+      const proPrice = document.getElementById("proPriceDisplay");
+      const proSub = document.getElementById("proCurrencySub");
+      const buyBtn = document.getElementById("buyPassBtn");
+      const buyBtnLabel = document.getElementById("buyBtnLabel");
+      const heroBuy = document.getElementById("heroBuyBtn");
+      const heroText = document.getElementById("heroBuyText");
+      const btnINR = document.getElementById("toggleINR");
+      const btnUSD = document.getElementById("toggleUSD");
+
+      if (currency === "USD") {
+        proPrice.textContent = "$19";
+        proSub.textContent = "/ USD Lifetime (No Monthly Fees)";
+        buyBtn.href = USD_LINK;
+        buyBtnLabel.textContent = "Get Instant Lifetime Pro Key ($19 USD)";
+        if (heroBuy) heroBuy.href = USD_LINK;
+        if (heroText) heroText.textContent = "Get Lifetime Pro Pass ($19 USD)";
+
+        btnUSD.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition bg-teal-500 text-slate-950";
+        btnINR.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white";
+      } else {
+        proPrice.textContent = "₹299";
+        proSub.textContent = "/ Lifetime (No Monthly Fees)";
+        buyBtn.href = INR_LINK;
+        buyBtnLabel.textContent = "Get Instant Lifetime Pro Key (₹299)";
+        if (heroBuy) heroBuy.href = INR_LINK;
+        if (heroText) heroText.textContent = "Get Lifetime Pro Pass (₹299)";
+
+        btnINR.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition bg-teal-500 text-slate-950";
+        btnUSD.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white";
+      }
+    }
+
+    document.getElementById("toggleINR").addEventListener("click", () => setPricing("INR"));
+    document.getElementById("toggleUSD").addEventListener("click", () => setPricing("USD"));
+
+    // Automatically check timezone to detect non-Indian visitors
+    try {
+      const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      if (userTz && !userTz.includes("Calcutta") && !userTz.includes("Kolkata") && !userTz.includes("Asia/Colombo")) {
+        setPricing("USD");
+      }
+    } catch (e) {
+      setPricing("INR");
+    }
+
+    // Demo Table Sandbox Handler
     const sampleInvoices = [
-      ["Invoice #", "Company / Vendor", "Category", "Amount (INR)", "Status"],
+      ["Invoice #", "Company / Vendor", "Category", "Amount", "Status"],
       ["INV-2026-001", "Arthnode Systems LLP", "IT Services & Cloud", "48250.00", "Settled"],
       ["INV-2026-002", "Kalyan Logistics & Freight", "E-Commerce Supply", "19800.00", "Settled"],
       ["INV-2026-003", "Sharma Legal & Compliance", "Tax Audit / GST", "62000.00", "Audited"],
@@ -432,7 +493,7 @@
     }
 
     document.getElementById("btnExportCsv").addEventListener("click", () => {
-      const csv = "\\uFEFF" + sampleInvoices.map(r => r.map(c => `"${c}"`).join(",")).join("\\r\\n");
+      const csv = "\uFEFF" + sampleInvoices.map(r => r.map(c => `"${c}"`).join(",")).join("\r\n");
       const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -446,7 +507,7 @@
     });
 
     document.getElementById("btnCopyTsv").addEventListener("click", () => {
-      const tsv = sampleInvoices.map(r => r.join("\\t")).join("\\n");
+      const tsv = sampleInvoices.map(r => r.join("\t")).join("\n");
       if (navigator.clipboard) {
         navigator.clipboard.writeText(tsv).then(() => {
           showDemoToast("📋 Copied table to clipboard! Paste directly into Excel or Google Sheets.");
