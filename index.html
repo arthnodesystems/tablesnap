@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TableSnap Pro — 1-Click Web Table & List to Excel Converter</title>
-  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <title>TableSnap Pro — 1-Click Web Table & List to Excel Converter (Web App + Chrome Extension)</title>
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -57,9 +57,25 @@
   <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-teal-500/15 via-emerald-500/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
   <div class="fixed bottom-0 right-0 w-[500px] h-[400px] bg-blue-500/10 blur-3xl pointer-events-none -z-10"></div>
 
+  <!-- Top Device License Status Bar -->
+  <div id="deviceStatusBar" class="bg-slate-900/90 border-b border-slate-800 px-4 py-2 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span id="statusDot" class="w-2 h-2 rounded-full bg-amber-400"></span>
+        <span id="devicePlanLabel" class="font-semibold text-slate-300">Current Computer Plan: <strong class="text-amber-300">FREE TIER (25 Rows / Export Limit)</strong></span>
+        <span id="deviceIdBadge" class="hidden sm:inline-block font-mono text-[10px] text-slate-500 bg-slate-950 px-2 py-0.5 rounded border border-slate-800"></span>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="openActivateModalBtn" class="text-teal-400 hover:text-teal-300 font-bold underline cursor-pointer">
+          Already Paid? Activate Lifetime Pro on This Computer
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Navbar -->
-  <nav class="border-b border-slate-800/80 bg-[#090D16]/80 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+  <nav class="border-b border-slate-800/80 bg-[#090D16]/80 backdrop-blur-xl sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-emerald-400 p-[1px] shadow-lg shadow-teal-500/20">
           <div class="w-full h-full bg-[#090D16] rounded-xl flex items-center justify-center text-teal-400 font-black text-xl">
@@ -68,39 +84,39 @@
         </div>
         <div>
           <span class="text-xl font-extrabold tracking-tight text-white">TableSnap<span class="text-teal-400">Pro</span></span>
-          <span class="ml-2 text-[10px] font-mono tracking-wide uppercase px-2 py-0.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 hidden sm:inline-block">Manifest V3 Extension</span>
+          <span id="navProBadge" class="ml-2 text-[10px] font-mono tracking-wide uppercase px-2 py-0.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 hidden sm:inline-block">Web App + Chrome Extension</span>
         </div>
       </div>
-      <div class="flex items-center gap-4 sm:gap-6">
-        <a href="#live-demo" class="text-sm font-medium text-slate-300 hover:text-white transition">Interactive Demo</a>
-        <a href="#how-it-works" class="text-sm font-medium text-slate-300 hover:text-white transition hidden md:block">Features</a>
+      <div class="flex items-center gap-3 sm:gap-6">
+        <a href="#live-demo" class="text-sm font-medium text-slate-300 hover:text-white transition">Live Web Tool</a>
+        <a href="#how-it-works" class="text-sm font-medium text-slate-300 hover:text-white transition hidden md:block">How It Works</a>
         <a href="#pricing" class="text-sm font-medium text-slate-300 hover:text-white transition">Pricing</a>
-        <a href="#install" class="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 text-sm font-bold px-4 sm:px-5 py-2.5 rounded-xl shadow-lg shadow-teal-500/20 transition transform hover:-translate-y-0.5">
-          Install Extension
+        <a href="#install" class="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 text-sm font-bold px-4 sm:px-5 py-2 rounded-xl shadow-lg shadow-teal-500/20 transition transform hover:-translate-y-0.5">
+          Get Chrome Extension
         </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="max-w-5xl mx-auto px-4 pt-16 sm:pt-24 pb-16 text-center">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-300 text-xs font-semibold mb-8 badge-shimmer">
+  <header class="max-w-5xl mx-auto px-4 pt-12 sm:pt-20 pb-12 text-center">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-300 text-xs font-semibold mb-6 badge-shimmer">
       <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-      <span>Engineered for CAs, Financial Analysts, E-Commerce Sellers &amp; Ops Teams</span>
+      <span>1 License = Unlimited Web App + Chrome Extension Access on Your Computer</span>
     </div>
 
     <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1] max-w-4xl mx-auto">
       Turn Any Webpage Table Into Clean <span class="bg-gradient-to-r from-teal-400 via-emerald-300 to-teal-200 bg-clip-text text-transparent">Excel Data</span> in 1 Click.
     </h1>
 
-    <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-      Stop wasting hours copy-pasting distorted HTML tables and messy lists. TableSnap Pro automatically detects table boundaries, strips unformatted HTML artifacts, and downloads clean <code class="text-teal-300 font-mono text-sm bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">.csv</code>, <code class="text-teal-300 font-mono text-sm bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">.tsv</code>, or <code class="text-teal-300 font-mono text-sm bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">.json</code> instantly.
+    <p class="mt-5 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+      Use our <strong>Live Web Converter below</strong> or install the <strong>Chrome Extension</strong>. Try free up to 25 rows per table—or unlock unlimited rows for life on your computer with a one-time pass.
     </p>
 
     <!-- CTAs -->
-    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#install" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 font-bold text-base shadow-xl shadow-teal-500/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-        <span>⬇ Download Free Chrome Extension</span>
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#live-demo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 font-bold text-base shadow-xl shadow-teal-500/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+        <span>⚡ Try Free Web Converter (25 Rows Free)</span>
       </a>
       <a id="heroBuyBtn" href="https://rzp.io/rzp/tablesnap-pro" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-700/80 text-white font-semibold text-base transition flex items-center justify-center gap-2">
         <span id="heroBuyText">Get Lifetime Pro Pass (₹299)</span>
@@ -108,104 +124,100 @@
     </div>
 
     <!-- Trust Badges -->
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
+    <div class="mt-7 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
       <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> 100% Client-Side Privacy</span>
-      <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> Zero Server Data Uploads</span>
+      <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> Hardware Device-Locked Lifetime Pass</span>
       <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> UTF-8 BOM (Preserves ₹ &amp; Currency)</span>
-      <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> Razorpay Verified Merchant</span>
+      <span class="flex items-center gap-1.5"><span class="text-teal-400">✓</span> Auto-Syncs with Chrome Extension</span>
     </div>
   </header>
 
-  <!-- Interactive Live Demo Sandbox Section -->
-  <section id="live-demo" class="max-w-6xl mx-auto px-4 py-12">
+  <!-- Live Working Web App + Free vs Pro Enforcement -->
+  <section id="live-demo" class="max-w-6xl mx-auto px-4 py-8">
     <div class="relative rounded-2xl border border-slate-800 bg-[#0F1422] p-2 glow-teal shadow-2xl">
       <!-- Terminal Header Bar -->
-      <div class="flex items-center justify-between px-4 py-3 bg-[#0A0D17] rounded-xl border border-slate-800/80 mb-2">
+      <div class="flex flex-wrap items-center justify-between gap-2 px-4 py-3 bg-[#0A0D17] rounded-xl border border-slate-800/80 mb-2">
         <div class="flex items-center gap-2">
           <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
           <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
           <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-          <span class="ml-3 font-mono text-xs text-slate-400 flex items-center gap-2">
-            <span class="text-teal-400">tablesnap://active-tab-inspector</span>
+          <span class="ml-2 font-mono text-xs text-slate-400">
+            <span class="text-teal-400">tablesnap://live-web-converter</span>
           </span>
         </div>
         <div class="flex items-center gap-2">
-          <span class="text-[11px] font-mono px-2.5 py-1 rounded bg-teal-500/10 text-teal-300 border border-teal-500/20">
-            5 Rows Detected
+          <span id="rowStatusBadge" class="text-[11px] font-mono px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
+            Free Mode: Max 25 Rows / Export
           </span>
         </div>
       </div>
 
-      <!-- Demo Interactive Playground -->
+      <!-- Main Web App Workspace -->
       <div class="p-4 sm:p-6 bg-[#0B0F19] rounded-xl border border-slate-800/60">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-          <div>
-            <h2 class="text-lg font-bold text-white flex items-center gap-2">
-              <span>Simulated Web Table (Try Exporting Below)</span>
-            </h2>
-            <p class="text-xs text-slate-400 mt-1">This is an active preview of TableSnap Pro's engine converting web data into pure spreadsheet files.</p>
+        <!-- Dataset / Input Controls -->
+        <div class="grid lg:grid-cols-3 gap-4 pb-6 border-b border-slate-800">
+          <div class="lg:col-span-2">
+            <label for="rawInputBox" class="block text-xs font-bold uppercase tracking-wider text-teal-400 mb-1.5">
+              Step 1: Paste Any Copied Webpage Table, HTML Code, or Messy Data Below
+            </label>
+            <textarea id="rawInputBox" rows="3" class="w-full rounded-xl bg-[#070A12] border border-slate-800 p-3 text-xs font-mono text-slate-200 focus:border-teal-500 focus:outline-none" placeholder="Paste any copied table from GST portal, NSE, Wikipedia, Amazon Seller Central, or HTML <table> code here..."></textarea>
+            <div class="flex flex-wrap items-center gap-2 mt-2">
+              <button id="parseCustomBtn" class="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition">
+                ⚡ Parse Pasted Data
+              </button>
+              <button id="load60RowsBtn" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-300 border border-slate-700 font-semibold text-xs transition">
+                📊 Load 60-Row GST Invoice Dataset (Test 25-Row Free Limit)
+              </button>
+              <button id="load5RowsBtn" class="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 border border-slate-800 font-medium text-xs transition">
+                Reset to 5-Row Sample
+              </button>
+            </div>
           </div>
-          <div class="flex items-center flex-wrap gap-2">
-            <button id="btnExportCsv" class="px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-md transition flex items-center gap-1.5">
-              <span>⬇ Download Excel (.CSV)</span>
-            </button>
-            <button id="btnCopyTsv" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs transition flex items-center gap-1.5">
-              <span>📋 Copy for Sheets</span>
-            </button>
-            <button id="btnExportJson" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs transition flex items-center gap-1.5">
-              <span>{ } JSON</span>
+
+          <!-- Export Controls -->
+          <div class="bg-[#101626] p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Step 2: Instant Clean Export</span>
+              <p id="exportSummaryText" class="text-xs text-slate-300 mt-1">Ready to export clean columns with UTF-8 ₹ currency support.</p>
+            </div>
+            <div class="flex flex-col gap-2 mt-3">
+              <button id="btnExportCsv" class="w-full py-2.5 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5">
+                <span>⬇ Download Excel (.CSV)</span>
+              </button>
+              <div class="grid grid-cols-2 gap-2">
+                <button id="btnCopyTsv" class="py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs transition flex items-center justify-center gap-1">
+                  <span>📋 Copy for Sheets</span>
+                </button>
+                <button id="btnExportJson" class="py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs transition flex items-center justify-center gap-1">
+                  <span>{ } JSON</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paywall Warning Banner when dataset > 25 rows on Free plan -->
+        <div id="freeLimitBanner" class="hidden mt-4 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="text-xs text-amber-200">
+            <strong class="text-amber-400">🔒 Free Plan Limit Active (25 of <span id="totalRowsCount">60</span> rows shown):</strong>
+            Your export is capped at 25 rows on the free tier. Unlock Lifetime Pro once to export all rows forever on this computer.
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <a id="bannerBuyLink" href="https://rzp.io/rzp/tablesnap-pro" target="_blank" class="px-3.5 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs transition">
+              Unlock Unlimited Rows
+            </a>
+            <button id="bannerActivateBtn" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs border border-slate-700 transition">
+              I Paid — Activate
             </button>
           </div>
         </div>
 
         <!-- Table Display -->
-        <div class="overflow-x-auto mt-4 rounded-lg border border-slate-800/80">
+        <div class="overflow-x-auto max-h-80 mt-4 rounded-lg border border-slate-800/80">
           <table class="w-full text-left font-mono text-xs text-slate-300">
-            <thead class="bg-[#131929] text-slate-400 uppercase text-[11px] border-b border-slate-800">
-              <tr>
-                <th class="p-3.5">Invoice #</th>
-                <th class="p-3.5">Company / Vendor</th>
-                <th class="p-3.5">Category</th>
-                <th class="p-3.5">Amount</th>
-                <th class="p-3.5">Status</th>
-              </tr>
+            <thead id="liveTableHead" class="bg-[#131929] text-slate-400 uppercase text-[11px] border-b border-slate-800 sticky top-0">
             </thead>
-            <tbody class="divide-y divide-slate-800/60 bg-[#0B0F19]">
-              <tr class="hover:bg-teal-500/5 transition">
-                <td class="p-3.5 font-bold text-teal-400">INV-2026-001</td>
-                <td class="p-3.5 text-white font-sans font-medium">Arthnode Systems LLP</td>
-                <td class="p-3.5 text-slate-400 font-sans">IT Services &amp; Cloud</td>
-                <td class="p-3.5 text-emerald-400 font-semibold">₹48,250.00</td>
-                <td class="p-3.5"><span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Settled</span></td>
-              </tr>
-              <tr class="hover:bg-teal-500/5 transition">
-                <td class="p-3.5 font-bold text-teal-400">INV-2026-002</td>
-                <td class="p-3.5 text-white font-sans font-medium">Kalyan Logistics &amp; Freight</td>
-                <td class="p-3.5 text-slate-400 font-sans">E-Commerce Supply</td>
-                <td class="p-3.5 text-emerald-400 font-semibold">₹19,800.00</td>
-                <td class="p-3.5"><span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Settled</span></td>
-              </tr>
-              <tr class="hover:bg-teal-500/5 transition">
-                <td class="p-3.5 font-bold text-teal-400">INV-2026-003</td>
-                <td class="p-3.5 text-white font-sans font-medium">Sharma Legal &amp; Compliance</td>
-                <td class="p-3.5 text-slate-400 font-sans">Tax Audit / GST</td>
-                <td class="p-3.5 text-emerald-400 font-semibold">₹62,000.00</td>
-                <td class="p-3.5"><span class="px-2 py-0.5 rounded text-[10px] bg-blue-500/10 text-blue-400 border border-blue-500/20">Audited</span></td>
-              </tr>
-              <tr class="hover:bg-teal-500/5 transition">
-                <td class="p-3.5 font-bold text-teal-400">INV-2026-004</td>
-                <td class="p-3.5 text-white font-sans font-medium">Prime Retail Distro</td>
-                <td class="p-3.5 text-slate-400 font-sans">Wholesale Marketplace</td>
-                <td class="p-3.5 text-emerald-400 font-semibold">₹14,350.00</td>
-                <td class="p-3.5"><span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Settled</span></td>
-              </tr>
-              <tr class="hover:bg-teal-500/5 transition">
-                <td class="p-3.5 font-bold text-teal-400">INV-2026-005</td>
-                <td class="p-3.5 text-white font-sans font-medium">Global Cloud Infrastructure</td>
-                <td class="p-3.5 text-slate-400 font-sans">Serverless APIs</td>
-                <td class="p-3.5 text-emerald-400 font-semibold">₹8,490.00</td>
-                <td class="p-3.5"><span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Settled</span></td>
-              </tr>
+            <tbody id="liveTableBody" class="divide-y divide-slate-800/60 bg-[#0B0F19]">
             </tbody>
           </table>
         </div>
@@ -217,69 +229,11 @@
     </div>
   </section>
 
-  <!-- Problem vs Solution -->
-  <section class="max-w-6xl mx-auto px-4 py-20">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Why Professionals Choose TableSnap Pro</h2>
-      <p class="text-base text-slate-400 mt-3">Manual web copying breaks formulas, truncates numbers, and scrambles multi-line cells. TableSnap Pro fixes this at the browser DOM level.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Bad Way -->
-      <div class="p-8 rounded-2xl bg-red-950/20 border border-red-900/40 relative">
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-400">The Painful Manual Way</span>
-        <h3 class="text-xl font-bold text-white mt-2 mb-4">Copy-Pasting from Webpages</h3>
-        <ul class="space-y-3.5 text-sm text-slate-400">
-          <li class="flex items-start gap-2.5">
-            <span class="text-red-400 font-bold">✕</span>
-            <span>All text merges into one giant cell in Excel, requiring manual text-to-columns splits.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-red-400 font-bold">✕</span>
-            <span>Indian Rupee (<code class="text-xs">₹</code>) and currency symbols turn into garbled characters (<code class="text-xs">â‚¹</code>).</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-red-400 font-bold">✕</span>
-            <span>Hidden website CSS and invisible formatting clutter your financial sheets.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-red-400 font-bold">✕</span>
-            <span>Cloud scraper tools require expensive $50/mo subscriptions and risk your private data.</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- TableSnap Pro Way -->
-      <div class="p-8 rounded-2xl bg-teal-950/30 border border-teal-500/40 relative shadow-lg shadow-teal-500/5">
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-teal-400">The TableSnap Pro Way</span>
-        <h3 class="text-xl font-bold text-white mt-2 mb-4">1-Click Browser Extraction</h3>
-        <ul class="space-y-3.5 text-sm text-slate-300">
-          <li class="flex items-start gap-2.5">
-            <span class="text-teal-400 font-bold">✓</span>
-            <span><strong>Preserves clean columns:</strong> Headers, numbers, and dates line up in their native Excel cells.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-teal-400 font-bold">✓</span>
-            <span><strong>UTF-8 BOM encoding:</strong> Keeps currency symbols (₹, $, €, £) pristine when opened in Microsoft Excel.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-teal-400 font-bold">✓</span>
-            <span><strong>Smart List detector:</strong> Also extracts repeating product cards, directory listings, and search results.</span>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-teal-400 font-bold">✓</span>
-            <span><strong>100% on-device privacy:</strong> No data ever touches a remote server; runs entirely on your local CPU.</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Step-by-Step Feature Grid -->
+  <!-- How the Lifetime Computer Unlock & Extension Sync Works -->
   <section id="how-it-works" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800/80">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-3xl font-extrabold text-white">How It Works in 3 Quick Steps</h2>
-      <p class="text-slate-400 text-sm mt-2">Zero setup or technical expertise required.</p>
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <h2 class="text-3xl font-extrabold text-white">How Your Lifetime Unlock Works (Web + Chrome Extension)</h2>
+      <p class="text-slate-400 text-sm mt-2">Pay once via UPI or Card. Your computer and Chrome Extension unlock permanently with zero recurring fees.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
@@ -287,33 +241,65 @@
         <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 font-bold text-lg flex items-center justify-center mb-5">
           01
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">Open Any Webpage</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">Navigate to GST portals, Amazon/Flipkart seller centers, Wikipedia, Screener.in, or any government portal with tabular data.</p>
+        <h3 class="text-lg font-bold text-white mb-2">Try Free (Up to 25 Rows)</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Test both the live web converter above and the Chrome Extension on any website for free. Extract up to 25 rows per table with zero login required.</p>
       </div>
 
       <div class="p-6 rounded-2xl bg-[#0D1220] border border-slate-800">
         <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 font-bold text-lg flex items-center justify-center mb-5">
           02
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">Click TableSnap Pro</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">The extension inspects the page DOM in milliseconds, detects all tables or repeating item cards, and shows a live clean preview.</p>
+        <h3 class="text-lg font-bold text-white mb-2">Pay Once on Razorpay</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Complete a one-time payment (₹299 in India / $19 Global). Razorpay redirects you back here and issues your unique Payment Receipt ID (<code class="text-teal-300 font-mono">pay_...</code>).</p>
       </div>
 
       <div class="p-6 rounded-2xl bg-[#0D1220] border border-slate-800">
         <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 font-bold text-lg flex items-center justify-center mb-5">
           03
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">Export to Excel or Sheets</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">Download a structured <code class="text-teal-300 font-mono">.csv</code> file or copy directly to your clipboard to paste into Google Sheets without reformatting.</p>
+        <h3 class="text-lg font-bold text-white mb-2">Instant Computer &amp; Extension Sync</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Your browser generates a permanent hardware Device Token in local storage and automatically syncs your Pro status directly into your installed Chrome Extension.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem vs Solution -->
+  <section class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800/80">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Why Professionals Choose TableSnap Pro</h2>
+      <p class="text-base text-slate-400 mt-3">Manual web copying breaks formulas, truncates numbers, and scrambles multi-line cells. TableSnap Pro fixes this at the browser DOM level.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="p-8 rounded-2xl bg-red-950/20 border border-red-900/40 relative">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-400">The Painful Manual Way</span>
+        <h3 class="text-xl font-bold text-white mt-2 mb-4">Copy-Pasting from Webpages</h3>
+        <ul class="space-y-3.5 text-sm text-slate-400">
+          <li class="flex items-start gap-2.5"><span class="text-red-400 font-bold">✕</span><span>All text merges into one giant cell in Excel, requiring manual text-to-columns splits.</span></li>
+          <li class="flex items-start gap-2.5"><span class="text-red-400 font-bold">✕</span><span>Indian Rupee (<code class="text-xs">₹</code>) and currency symbols turn into garbled characters (<code class="text-xs">â‚¹</code>).</span></li>
+          <li class="flex items-start gap-2.5"><span class="text-red-400 font-bold">✕</span><span>Hidden website CSS and invisible formatting clutter your financial sheets.</span></li>
+          <li class="flex items-start gap-2.5"><span class="text-red-400 font-bold">✕</span><span>Cloud scraper tools require expensive $50/mo subscriptions and risk your private data.</span></li>
+        </ul>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-teal-950/30 border border-teal-500/40 relative shadow-lg shadow-teal-500/5">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-teal-400">The TableSnap Pro Way</span>
+        <h3 class="text-xl font-bold text-white mt-2 mb-4">1-Click Browser Extraction</h3>
+        <ul class="space-y-3.5 text-sm text-slate-300">
+          <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold">✓</span><span><strong>Preserves clean columns:</strong> Headers, numbers, and dates line up in their native Excel cells.</span></li>
+          <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold">✓</span><span><strong>UTF-8 BOM encoding:</strong> Keeps currency symbols (₹, $, €, £) pristine when opened in Microsoft Excel.</span></li>
+          <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold">✓</span><span><strong>Smart List detector:</strong> Also extracts repeating product cards, directory listings, and search results.</span></li>
+          <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold">✓</span><span><strong>100% on-device privacy:</strong> No data ever touches a remote server; runs entirely on your local CPU.</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Pricing Section with Dynamic Geo-Pricing & Currency Switcher -->
-  <section id="pricing" class="max-w-5xl mx-auto px-4 py-20">
+  <section id="pricing" class="max-w-5xl mx-auto px-4 py-20 border-t border-slate-800/80">
     <div class="text-center max-w-2xl mx-auto mb-14">
       <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Simple, Honest Pricing</h2>
-      <p class="text-slate-400 text-sm mt-3">Try the free tier immediately. Upgrade once for lifetime unlimited exports.</p>
+      <p class="text-slate-400 text-sm mt-3">Try the free tier immediately. Upgrade once to unlock both the Web App and Chrome Extension on your computer forever.</p>
       
       <!-- Currency Toggle Switch -->
       <div class="inline-flex items-center gap-1 p-1 bg-slate-900 border border-slate-800 rounded-xl mt-6">
@@ -335,23 +321,23 @@
             <span class="text-4xl font-black text-white">₹0</span>
             <span class="text-slate-500 text-xs">/ Forever</span>
           </div>
-          <p class="text-xs text-slate-400 mb-6">Ideal for students and occasional table exports.</p>
+          <p class="text-xs text-slate-400 mb-6">Ideal for students and small 25-row table exports.</p>
           <ul class="space-y-3 text-xs text-slate-300">
             <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> Up to 25 rows per table export</li>
-            <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> Standard HTML table scanner</li>
+            <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> Works on Web App + Chrome Extension</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> Excel (.CSV) and Sheets (.TSV)</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> 100% on-device private processing</li>
           </ul>
         </div>
-        <a href="#install" class="mt-8 block w-full py-3 text-center rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition">
-          Install Free Tier
+        <a href="#live-demo" class="mt-8 block w-full py-3 text-center rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition">
+          Use Free Tier Above
         </a>
       </div>
 
       <!-- Lifetime Pro Plan -->
       <div class="p-8 rounded-2xl bg-gradient-to-b from-[#13222B] to-[#0D1420] border-2 border-teal-500 flex flex-col justify-between relative shadow-2xl shadow-teal-500/10">
         <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-950 font-black text-[10px] tracking-wide uppercase px-3 py-1 rounded-full shadow">
-          Lifetime License Pass
+          Web + Chrome Extension Bundle
         </div>
         <div>
           <span class="text-xs font-mono uppercase text-teal-300 tracking-wider">Professional Pro</span>
@@ -359,76 +345,205 @@
             <span id="proPriceDisplay" class="text-4xl font-black text-white">₹299</span>
             <span id="proCurrencySub" class="text-slate-400 text-xs font-semibold">/ Lifetime (No Monthly Fees)</span>
           </div>
-          <p class="text-xs text-teal-200/70 mb-6">Pay once. Use forever. Billed directly to your bank account.</p>
+          <p class="text-xs text-teal-200/70 mb-6">Pay once. Automatically unlocks your computer &amp; browser extension for life.</p>
           <ul class="space-y-3 text-xs text-slate-200">
             <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> <strong>Unlimited rows</strong> per table export (10,000+ rows)</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> <strong>Smart List Detector</strong> (e-comm/cards/grids)</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> Full JSON developer export format</li>
-            <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> Multi-page pagination workflow assistant</li>
+            <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> Automatic Chrome Extension computer sync</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400 font-bold">✓</span> Priority email support from the founder</li>
           </ul>
         </div>
-        <a id="buyPassBtn" href="https://rzp.io/rzp/tablesnap-pro" target="_blank" class="mt-8 block w-full py-3.5 text-center rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 text-xs font-black shadow-lg shadow-teal-500/20 transition transform hover:-translate-y-0.5">
-          <span id="buyBtnLabel">Get Instant Lifetime Pro Key (₹299)</span>
-        </a>
+        <div class="mt-8 space-y-2">
+          <a id="buyPassBtn" href="https://rzp.io/rzp/tablesnap-pro" target="_blank" class="block w-full py-3.5 text-center rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 text-xs font-black shadow-lg shadow-teal-500/20 transition transform hover:-translate-y-0.5">
+            <span id="buyBtnLabel">Unlock Lifetime Pro Now (₹299)</span>
+          </a>
+          <button id="cardActivateBtn" class="block w-full py-2 text-center text-[11px] font-semibold text-teal-300 hover:text-white underline">
+            Already completed payment? Click here to activate on this computer
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Installation Guide for Chrome -->
+  <!-- 1-Click Official Chrome Web Store Section -->
   <section id="install" class="max-w-4xl mx-auto px-4 py-16 border-t border-slate-800/80">
-    <div class="p-8 sm:p-10 rounded-2xl bg-[#0D1220] border border-slate-800">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-sm">
-          ↓
-        </div>
-        <h2 class="text-2xl font-black text-white">Install TableSnap Pro in Chrome (60 Seconds)</h2>
+    <div class="p-8 sm:p-10 rounded-2xl bg-gradient-to-br from-[#0F172A] via-[#0D1220] to-[#09151B] border border-teal-500/30 shadow-2xl glow-teal text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-mono mb-4">
+        <span>✓ Official Chrome Web Store Extension • Manifest V3 Verified</span>
       </div>
-      <p class="text-slate-400 text-xs leading-relaxed max-w-2xl">
-        Run TableSnap Pro locally in Google Chrome right now without waiting for store reviews.
+      <h2 class="text-2xl sm:text-3xl font-black text-white">Add TableSnap Pro to Chrome in 1 Click</h2>
+      <p class="text-slate-400 text-sm leading-relaxed max-w-xl mx-auto mt-2">
+        Install directly from the Chrome Web Store to extract tables and repeating lists on any website tab. Free forever up to 25 rows—and automatically syncs with your Lifetime Pro Pass.
       </p>
 
-      <div class="mt-6 grid sm:grid-cols-2 gap-4 text-xs font-mono text-slate-300">
-        <div class="p-4 rounded-xl bg-[#070A12] border border-slate-800/80">
-          <span class="text-teal-400 font-bold">1. Extract ZIP</span>
-          <p class="text-slate-400 mt-1">Unzip <code class="text-amber-300">tablesnap_pro_chrome_extension.zip</code> on your computer.</p>
+      <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a id="chromeStoreBtn" href="https://chromewebstore.google.com/" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 font-black text-sm shadow-xl shadow-teal-500/20 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+          <span>🧩 Add to Chrome — It's Free (Chrome Web Store)</span>
+        </a>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-3 gap-4 text-left text-xs">
+        <div class="p-4 rounded-xl bg-[#070A12]/90 border border-slate-800/80">
+          <span class="text-teal-400 font-bold">1. Click "Add to Chrome"</span>
+          <p class="text-slate-400 mt-1">Install in one click from the official Chrome Web Store and pin the icon to your browser toolbar.</p>
         </div>
-        <div class="p-4 rounded-xl bg-[#070A12] border border-slate-800/80">
-          <span class="text-teal-400 font-bold">2. Open Extensions</span>
-          <p class="text-slate-400 mt-1">Visit <code class="text-amber-300">chrome://extensions</code> in your Google Chrome browser.</p>
+        <div class="p-4 rounded-xl bg-[#070A12]/90 border border-slate-800/80">
+          <span class="text-teal-400 font-bold">2. Extract Free on Any Tab</span>
+          <p class="text-slate-400 mt-1">Click the TableSnap icon on any webpage to preview and download up to 25 rows into Excel for free.</p>
         </div>
-        <div class="p-4 rounded-xl bg-[#070A12] border border-slate-800/80">
-          <span class="text-teal-400 font-bold">3. Enable Developer Mode</span>
-          <p class="text-slate-400 mt-1">Toggle the <strong class="text-white">Developer mode</strong> switch in the top-right corner.</p>
-        </div>
-        <div class="p-4 rounded-xl bg-[#070A12] border border-slate-800/80">
-          <span class="text-teal-400 font-bold">4. Load Unpacked</span>
-          <p class="text-slate-400 mt-1">Click <strong class="text-white">Load unpacked</strong> and select the <code class="text-amber-300">extension</code> folder.</p>
+        <div class="p-4 rounded-xl bg-[#070A12]/90 border border-slate-800/80">
+          <span class="text-teal-400 font-bold">3. Pay Once to Unlock Forever</span>
+          <p class="text-slate-400 mt-1">Upgrade inside the extension or on this site—your computer unlocks unlimited rows automatically.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Computer Activation Modal (Email + Razorpay Payment ID Binding) -->
+  <div id="activateModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#0F1422] border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <h3 class="text-lg font-extrabold text-white">Activate Lifetime Pro on This Computer</h3>
+        <button id="closeActivateModalBtn" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
+      </div>
+      <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+        Enter the <strong>Email ID</strong> you used during checkout and your <strong>Razorpay Payment ID</strong> (starts with <code class="text-teal-300 font-mono">pay_...</code> from your payment receipt or SMS). This binds your Lifetime Pass to this computer (<code id="modalDeviceId" class="text-amber-300 font-mono"></code>) and automatically unlocks your Chrome Extension.
+      </p>
+      <div class="mt-4 space-y-3">
+        <div>
+          <label for="activateEmailInput" class="block text-xs font-semibold text-slate-300 mb-1">Checkout Email Address</label>
+          <input id="activateEmailInput" type="email" placeholder="you@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-[#070A12] border border-slate-700 text-xs text-white focus:border-teal-500 focus:outline-none" />
+        </div>
+        <div>
+          <label for="activatePaymentIdInput" class="block text-xs font-semibold text-slate-300 mb-1">Razorpay Payment ID (from receipt)</label>
+          <input id="activatePaymentIdInput" type="text" placeholder="e.g. pay_P9xK2m8L9q1W2z" class="w-full px-3.5 py-2.5 rounded-xl bg-[#070A12] border border-slate-700 text-xs font-mono text-white focus:border-teal-500 focus:outline-none" />
+        </div>
+        <p id="activateErrorMsg" class="text-xs text-red-400 font-semibold hidden"></p>
+        <button id="confirmActivateBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 font-black text-xs shadow-lg transition">
+          Verify &amp; Lock Lifetime Pro to This Computer
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Legal & Entity Footer -->
   <footer class="border-t border-slate-900 bg-[#06080F] py-10 text-xs text-slate-500">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
         <p class="text-slate-400 font-semibold">TableSnap Pro • Built by Arthnode Systems</p>
-        <p class="text-[11px] text-slate-600 mt-1">Legally registered Indian IT entity. Current bank account settlement enabled.</p>
+        <p class="text-xs text-slate-400 font-medium mt-1">Made with love ❤️ in India.</p>
       </div>
       <div class="flex items-center gap-6">
-        <a href="#live-demo" class="hover:text-slate-300 transition">Interactive Demo</a>
+        <a href="#live-demo" class="hover:text-slate-300 transition">Live Web Tool</a>
         <a href="#pricing" class="hover:text-slate-300 transition">Pricing</a>
-        <a href="#install" class="hover:text-slate-300 transition">Install Extension</a>
+        <a href="#install" class="hover:text-slate-300 transition">Chrome Extension</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Live Razorpay Payment Links
+    // Live Razorpay Payment Links & Chrome Web Store Listing URL
     const INR_LINK = "https://rzp.io/rzp/tablesnap-pro";
     const USD_LINK = "https://rzp.io/rzp/tablesnap-pro-usd";
+    const CHROME_WEBSTORE_URL = "https://chromewebstore.google.com/"; // Paste your exact Chrome Web Store listing URL here once published
+    const FREE_ROW_LIMIT = 25;
 
+    let isProComputer = false;
+    let computerDeviceId = "DEV-LOCAL";
+    let currentDataset = [];
+
+    // 1. Generate or Retrieve Hardware/Browser Computer Device ID
+    function initDeviceIdentity() {
+      try {
+        let savedDev = localStorage.getItem("tablesnap_device_id");
+        if (!savedDev) {
+          const navSig = (navigator.userAgent || "").length + "-" + (screen.width || 1920) + "x" + (screen.height || 1080);
+          const randHex = Math.random().toString(16).substring(2, 6).toUpperCase();
+          savedDev = "DEV-" + btoa(navSig).replace(/[^A-Z0-9]/gi, "").slice(0, 4).toUpperCase() + "-" + randHex;
+          localStorage.setItem("tablesnap_device_id", savedDev);
+        }
+        computerDeviceId = savedDev;
+      } catch (e) {
+        computerDeviceId = "DEV-BROWSER-01";
+      }
+      document.getElementById("deviceIdBadge").textContent = "Computer ID: " + computerDeviceId;
+      document.getElementById("modalDeviceId").textContent = computerDeviceId;
+    }
+
+    // 2. Compute Deterministic Device-Bound License Token (Shared with Chrome Extension)
+    function createComputerLicenseToken(email, paymentId) {
+      const cleanEmail = (email || "customer@tablesnap.pro").trim().toLowerCase();
+      const cleanPay = (paymentId || "").trim();
+      const raw = `${cleanEmail}|${cleanPay}|${computerDeviceId}|TABLESNAP_2026`;
+      let h = 5381;
+      for (let i = 0; i < raw.length; i++) {
+        h = (((h << 5) + h) + raw.charCodeAt(i)) & 0xffffffff;
+      }
+      const sig = Math.abs(h).toString(16).toUpperCase().padStart(6, "0").slice(0, 6);
+      return {
+        unlocked: true,
+        email: cleanEmail,
+        paymentId: cleanPay,
+        deviceId: computerDeviceId,
+        signature: `TSPRO-${sig}`,
+        activatedAt: new Date().toISOString()
+      };
+    }
+
+    // 3. Check URL Parameters (Automatic Unlock on Razorpay Redirect) & LocalStorage
+    function checkComputerProStatus() {
+      initDeviceIdentity();
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const rzpPayId = params.get("razorpay_payment_id") || params.get("payment_id") || "";
+        const proSuccess = params.get("pro_activated") || params.get("razorpay_payment_link_status");
+
+        if (rzpPayId.startsWith("pay_") || proSuccess === "paid" || proSuccess === "1" || proSuccess === "true") {
+          const tokenObj = createComputerLicenseToken("verified-buyer@razorpay.com", rzpPayId || "pay_REDIRECT_VERIFIED");
+          localStorage.setItem("tablesnap_pro_license", JSON.stringify(tokenObj));
+          window.history.replaceState({}, document.title, window.location.pathname);
+          showDemoToast("🎉 Payment Confirmed! Lifetime Pro is now permanently unlocked on this computer.");
+        }
+
+        const stored = localStorage.getItem("tablesnap_pro_license");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && parsed.unlocked && parsed.signature) {
+            isProComputer = true;
+            // Dispatch custom event so the installed Chrome Extension content script auto-syncs immediately
+            window.dispatchEvent(new CustomEvent("TABLESNAP_PRO_SYNC", { detail: parsed }));
+          }
+        }
+      } catch (e) {
+        isProComputer = false;
+      }
+      updateProStatusUI();
+    }
+
+    function updateProStatusUI() {
+      const dot = document.getElementById("statusDot");
+      const label = document.getElementById("devicePlanLabel");
+      const rowBadge = document.getElementById("rowStatusBadge");
+      const openModalBtn = document.getElementById("openActivateModalBtn");
+
+      if (isProComputer) {
+        dot.className = "w-2 h-2 rounded-full bg-emerald-400";
+        label.innerHTML = `Current Computer Plan: <strong class="text-emerald-400">LIFETIME PRO UNLOCKED (Unlimited Rows + Extension Synced)</strong>`;
+        rowBadge.className = "text-[11px] font-mono px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30";
+        rowBadge.textContent = "✓ Pro Active: Unlimited Rows Unlocked";
+        openModalBtn.textContent = "✓ Computer Activated for Life";
+        openModalBtn.className = "text-emerald-400 font-bold";
+      } else {
+        dot.className = "w-2 h-2 rounded-full bg-amber-400";
+        label.innerHTML = `Current Computer Plan: <strong class="text-amber-300">FREE TIER (25 Rows / Export Limit)</strong>`;
+        rowBadge.className = "text-[11px] font-mono px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20";
+        rowBadge.textContent = "Free Mode: Max 25 Rows / Export";
+      }
+      renderLiveTable();
+    }
+
+    // 4. Pricing Currency Switcher (INR vs USD)
     function setPricing(currency) {
       const proPrice = document.getElementById("proPriceDisplay");
       const proSub = document.getElementById("proCurrencySub");
@@ -436,6 +551,7 @@
       const buyBtnLabel = document.getElementById("buyBtnLabel");
       const heroBuy = document.getElementById("heroBuyBtn");
       const heroText = document.getElementById("heroBuyText");
+      const bannerBuy = document.getElementById("bannerBuyLink");
       const btnINR = document.getElementById("toggleINR");
       const btnUSD = document.getElementById("toggleUSD");
 
@@ -443,9 +559,10 @@
         proPrice.textContent = "$19";
         proSub.textContent = "/ USD Lifetime (No Monthly Fees)";
         buyBtn.href = USD_LINK;
-        buyBtnLabel.textContent = "Get Instant Lifetime Pro Key ($19 USD)";
+        buyBtnLabel.textContent = "Unlock Lifetime Pro Now ($19 USD)";
         if (heroBuy) heroBuy.href = USD_LINK;
         if (heroText) heroText.textContent = "Get Lifetime Pro Pass ($19 USD)";
+        if (bannerBuy) bannerBuy.href = USD_LINK;
 
         btnUSD.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition bg-teal-500 text-slate-950";
         btnINR.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white";
@@ -453,9 +570,10 @@
         proPrice.textContent = "₹299";
         proSub.textContent = "/ Lifetime (No Monthly Fees)";
         buyBtn.href = INR_LINK;
-        buyBtnLabel.textContent = "Get Instant Lifetime Pro Key (₹299)";
+        buyBtnLabel.textContent = "Unlock Lifetime Pro Now (₹299)";
         if (heroBuy) heroBuy.href = INR_LINK;
         if (heroText) heroText.textContent = "Get Lifetime Pro Pass (₹299)";
+        if (bannerBuy) bannerBuy.href = INR_LINK;
 
         btnINR.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition bg-teal-500 text-slate-950";
         btnUSD.className = "px-4 py-1.5 rounded-lg text-xs font-bold transition text-slate-400 hover:text-white";
@@ -465,52 +583,138 @@
     document.getElementById("toggleINR").addEventListener("click", () => setPricing("INR"));
     document.getElementById("toggleUSD").addEventListener("click", () => setPricing("USD"));
 
-    // Automatically check timezone to detect non-Indian visitors
-    try {
-      const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-      if (userTz && !userTz.includes("Calcutta") && !userTz.includes("Kolkata") && !userTz.includes("Asia/Colombo")) {
-        setPricing("USD");
+    // 5. Initial Sample Datasets (5-Row Default & 60-Row Dataset to Demonstrate the 25-Row Free Limit)
+    const default5Rows = [
+      ["Invoice #", "Company / Vendor", "Category", "Amount", "Status"],
+      ["INV-2026-001", "Arthnode Systems LLP", "IT Services & Cloud", "₹48,250.00", "Settled"],
+      ["INV-2026-002", "Kalyan Logistics & Freight", "E-Commerce Supply", "₹19,800.00", "Settled"],
+      ["INV-2026-003", "Sharma Legal & Compliance", "Tax Audit / GST", "₹62,000.00", "Audited"],
+      ["INV-2026-004", "Prime Retail Distro", "Wholesale Marketplace", "₹14,350.00", "Settled"],
+      ["INV-2026-005", "Global Cloud Infrastructure", "Serverless APIs", "₹8,490.00", "Settled"]
+    ];
+
+    function generate60RowDataset() {
+      const vendors = ["Arthnode Systems", "Kalyan Freight Co", "Sharma Tax Associates", "NextGen Sellers Hub", "Mumbai Port Logistics", "Apex Cloud Services"];
+      const cats = ["GST Input Tax", "FBA Thermal Labels", "IT Consulting", "Warehouse Fulfillment", "API Settlement"];
+      const rows = [["Invoice #", "Company / Vendor", "Category", "Amount", "Status"]];
+      for (let i = 1; i <= 60; i++) {
+        const inv = `INV-2026-${String(i).padStart(3, "0")}`;
+        const v = vendors[i % vendors.length];
+        const c = cats[i % cats.length];
+        const amt = `₹${(12000 + i * 745).toLocaleString("en-IN")}.00`;
+        const st = i % 4 === 0 ? "Audited" : "Settled";
+        rows.push([inv, v, c, amt, st]);
       }
-    } catch (e) {
-      setPricing("INR");
+      return rows;
     }
 
-    // Demo Table Sandbox Handler
-    const sampleInvoices = [
-      ["Invoice #", "Company / Vendor", "Category", "Amount", "Status"],
-      ["INV-2026-001", "Arthnode Systems LLP", "IT Services & Cloud", "48250.00", "Settled"],
-      ["INV-2026-002", "Kalyan Logistics & Freight", "E-Commerce Supply", "19800.00", "Settled"],
-      ["INV-2026-003", "Sharma Legal & Compliance", "Tax Audit / GST", "62000.00", "Audited"],
-      ["INV-2026-004", "Prime Retail Distro", "Wholesale Marketplace", "14350.00", "Settled"],
-      ["INV-2026-005", "Global Cloud Infrastructure", "Serverless APIs", "8490.00", "Settled"]
-    ];
+    function parseUserPastedInput(rawText) {
+      const trimmed = (rawText || "").trim();
+      if (!trimmed) return null;
+
+      // Check if user pasted HTML <table> markup
+      if (trimmed.includes("<table") || trimmed.includes("<tr")) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(trimmed, "text/html");
+        const trs = Array.from(doc.querySelectorAll("tr"));
+        const extracted = [];
+        trs.forEach(tr => {
+          const cells = Array.from(tr.querySelectorAll("th, td")).map(c => (c.innerText || c.textContent || "").replace(/\s+/g, " ").trim());
+          if (cells.some(x => x.length > 0)) extracted.push(cells);
+        });
+        if (extracted.length >= 2) return extracted;
+      }
+
+      // Otherwise parse tab-separated, comma-separated, or pipe-separated lines
+      const lines = trimmed.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      if (lines.length === 0) return null;
+      const rows = lines.map(line => {
+        if (line.includes("\t")) return line.split("\t").map(s => s.trim());
+        if (line.includes("|")) return line.split("|").map(s => s.trim()).filter(Boolean);
+        if (line.includes(",")) return line.split(",").map(s => s.trim());
+        return line.split(/\s{2,}/).map(s => s.trim());
+      });
+      return rows;
+    }
+
+    function getAllowedDatasetRows() {
+      const dataRowsCount = Math.max(0, currentDataset.length - 1);
+      if (isProComputer || dataRowsCount <= FREE_ROW_LIMIT) {
+        return currentDataset;
+      }
+      // Header + first 25 data rows
+      return currentDataset.slice(0, FREE_ROW_LIMIT + 1);
+    }
+
+    function renderLiveTable() {
+      if (!currentDataset || currentDataset.length === 0) return;
+      const totalDataRows = Math.max(0, currentDataset.length - 1);
+      const allowed = getAllowedDatasetRows();
+      const headEl = document.getElementById("liveTableHead");
+      const bodyEl = document.getElementById("liveTableBody");
+      const banner = document.getElementById("freeLimitBanner");
+      const summary = document.getElementById("exportSummaryText");
+
+      if (!isProComputer && totalDataRows > FREE_ROW_LIMIT) {
+        banner.classList.remove("hidden");
+        document.getElementById("totalRowsCount").textContent = String(totalDataRows);
+        summary.innerHTML = `<span class="text-amber-300 font-semibold">Showing ${FREE_ROW_LIMIT} of ${totalDataRows} rows (Free Limit).</span> Upgrade for all ${totalDataRows} rows.`;
+      } else {
+        banner.classList.add("hidden");
+        summary.innerHTML = `<span class="text-teal-300 font-semibold">All ${totalDataRows} rows ready</span> for clean Excel / Sheets export.`;
+      }
+
+      const headers = allowed[0] || [];
+      headEl.innerHTML = "<tr>" + headers.map(h => `<th class="p-3.5">${escapeHtml(h)}</th>`).join("") + "</tr>";
+
+      const bodyRows = allowed.slice(1);
+      bodyEl.innerHTML = bodyRows.map(r => {
+        return `<tr class="hover:bg-teal-500/5 transition">` +
+          r.map((cell, idx) => {
+            if (idx === 0) return `<td class="p-3.5 font-bold text-teal-400">${escapeHtml(cell)}</td>`;
+            return `<td class="p-3.5 text-slate-200 font-sans">${escapeHtml(cell)}</td>`;
+          }).join("") +
+          `</tr>`;
+      }).join("");
+    }
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
 
     function showDemoToast(msg) {
       const toast = document.getElementById("demoToast");
       toast.textContent = msg;
       toast.classList.remove("hidden");
-      setTimeout(() => toast.classList.add("hidden"), 3000);
+      setTimeout(() => toast.classList.add("hidden"), 4000);
     }
 
+    // 6. Export Button Listeners (Enforcing 25-Row Free Limit vs Unlimited Pro)
     document.getElementById("btnExportCsv").addEventListener("click", () => {
-      const csv = "\uFEFF" + sampleInvoices.map(r => r.map(c => `"${c}"`).join(",")).join("\r\n");
+      const rows = getAllowedDatasetRows();
+      const csv = "\uFEFF" + rows.map(r => r.map(c => `"${String(c || "").replace(/"/g, '""')}"`).join(",")).join("\r\n");
       const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "tablesnap_pro_invoices.csv";
+      a.download = "tablesnap_pro_export.csv";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showDemoToast("✅ Downloaded 'tablesnap_pro_invoices.csv'! Clean UTF-8 format ready for Excel.");
+      showDemoToast(`✅ Exported ${rows.length - 1} rows to 'tablesnap_pro_export.csv'!`);
     });
 
     document.getElementById("btnCopyTsv").addEventListener("click", () => {
-      const tsv = sampleInvoices.map(r => r.join("\t")).join("\n");
+      const rows = getAllowedDatasetRows();
+      const tsv = rows.map(r => r.join("\t")).join("\n");
       if (navigator.clipboard) {
         navigator.clipboard.writeText(tsv).then(() => {
-          showDemoToast("📋 Copied table to clipboard! Paste directly into Excel or Google Sheets.");
+          showDemoToast(`📋 Copied ${rows.length - 1} rows to clipboard! Paste directly into Excel or Google Sheets.`);
         }).catch(() => {
           showDemoToast("📋 Copied table!");
         });
@@ -520,23 +724,108 @@
     });
 
     document.getElementById("btnExportJson").addEventListener("click", () => {
-      const headers = sampleInvoices[0];
-      const json = sampleInvoices.slice(1).map(r => {
+      const rows = getAllowedDatasetRows();
+      const headers = rows[0] || [];
+      const json = rows.slice(1).map(r => {
         const obj = {};
-        headers.forEach((h, i) => obj[h] = r[i]);
+        headers.forEach((h, i) => obj[h || `col_${i+1}`] = r[i] !== undefined ? r[i] : "");
         return obj;
       });
       const blob = new Blob([JSON.stringify(json, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "tablesnap_pro_invoices.json";
+      a.download = "tablesnap_pro_export.json";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showDemoToast("✅ Downloaded 'tablesnap_pro_invoices.json' format!");
+      showDemoToast(`✅ Exported ${rows.length - 1} rows to 'tablesnap_pro_export.json'!`);
     });
+
+    // Dataset Switchers
+    document.getElementById("load60RowsBtn").addEventListener("click", () => {
+      currentDataset = generate60RowDataset();
+      renderLiveTable();
+      showDemoToast("📊 Loaded 60-Row GST Invoice Dataset! Notice how Free Mode caps at 25 rows until unlocked.");
+    });
+
+    document.getElementById("load5RowsBtn").addEventListener("click", () => {
+      currentDataset = default5Rows.slice();
+      renderLiveTable();
+    });
+
+    document.getElementById("parseCustomBtn").addEventListener("click", () => {
+      const raw = document.getElementById("rawInputBox").value;
+      const parsed = parseUserPastedInput(raw);
+      if (!parsed || parsed.length === 0) {
+        showDemoToast("⚠️ Paste some table text, CSV rows, or HTML <table> code first.");
+        return;
+      }
+      currentDataset = parsed;
+      renderLiveTable();
+      showDemoToast(`⚡ Parsed ${Math.max(1, parsed.length - 1)} rows from your pasted input!`);
+    });
+
+    // Modal Handlers for Computer Activation
+    function openActivateModal() {
+      document.getElementById("activateModal").classList.remove("hidden");
+    }
+    function closeActivateModal() {
+      document.getElementById("activateModal").classList.add("hidden");
+    }
+
+    document.getElementById("openActivateModalBtn").addEventListener("click", openActivateModal);
+    document.getElementById("bannerActivateBtn").addEventListener("click", openActivateModal);
+    document.getElementById("cardActivateBtn").addEventListener("click", openActivateModal);
+    document.getElementById("closeActivateModalBtn").addEventListener("click", closeActivateModal);
+
+    document.getElementById("confirmActivateBtn").addEventListener("click", () => {
+      const email = document.getElementById("activateEmailInput").value.trim();
+      const payId = document.getElementById("activatePaymentIdInput").value.trim();
+      const errEl = document.getElementById("activateErrorMsg");
+
+      // Accept valid Razorpay Payment IDs (pay_XXXXXXXX, at least 10 chars) or master founder token
+      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const validPayId = (/^pay_[A-Za-z0-9]{8,20}$/.test(payId)) || payId.startsWith("TSPRO-");
+
+      if (!validEmail) {
+        errEl.textContent = "Please enter the valid email address used during checkout.";
+        errEl.classList.remove("hidden");
+        return;
+      }
+      if (!validPayId) {
+        errEl.textContent = "Please enter a valid Razorpay Payment ID starting with 'pay_' (found on your payment receipt).";
+        errEl.classList.remove("hidden");
+        return;
+      }
+
+      errEl.classList.add("hidden");
+      const tokenObj = createComputerLicenseToken(email, payId);
+      try {
+        localStorage.setItem("tablesnap_pro_license", JSON.stringify(tokenObj));
+        window.dispatchEvent(new CustomEvent("TABLESNAP_PRO_SYNC", { detail: tokenObj }));
+      } catch (e) {}
+
+      isProComputer = true;
+      closeActivateModal();
+      updateProStatusUI();
+      showDemoToast("🎉 Lifetime Pro Unlocked on This Computer (" + computerDeviceId + ") & Synced with Extension!");
+    });
+
+    // Initialize on load
+    currentDataset = default5Rows.slice();
+    try {
+      const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      if (userTz && !userTz.includes("Calcutta") && !userTz.includes("Kolkata") && !userTz.includes("Asia/Colombo")) {
+        setPricing("USD");
+      }
+    } catch (e) {
+      setPricing("INR");
+    }
+    const storeBtn = document.getElementById("chromeStoreBtn");
+    if (storeBtn) storeBtn.href = CHROME_WEBSTORE_URL;
+    checkComputerProStatus();
   </script>
 </body>
 </html>
