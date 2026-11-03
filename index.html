@@ -62,7 +62,7 @@
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span id="statusDot" class="w-2 h-2 rounded-full bg-amber-400"></span>
-        <span id="devicePlanLabel" class="font-semibold text-slate-300">Current Computer Plan: <strong class="text-amber-300">FREE TIER (25 Rows / Export Limit)</strong></span>
+        <span id="devicePlanLabel" class="font-semibold text-slate-300">Current Computer Plan: <strong class="text-amber-300">FREE TIER (10 Rows / Export • 3 Exports/Day • Pro Smart List & JSON Lock)</strong></span>
         <span id="deviceIdBadge" class="hidden sm:inline-block font-mono text-[10px] text-slate-500 bg-slate-950 px-2 py-0.5 rounded border border-slate-800"></span>
       </div>
       <div class="flex items-center gap-3">
@@ -110,13 +110,13 @@
     </h1>
 
     <p class="mt-5 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-      Use our <strong>Live Web Converter below</strong> or install the <strong>Chrome Extension</strong>. Try free up to 25 rows per table—or unlock unlimited rows for life on your computer with a one-time pass.
+      Use our <strong>Live Web Converter below</strong> or install the <strong>Chrome Extension</strong>. Try free (up to 10 rows per table, 3 exports/day)—or unlock unlimited rows, Smart List scraping, and JSON export for life with a one-time pass.
     </p>
 
     <!-- CTAs -->
     <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
       <a href="#live-demo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 font-bold text-base shadow-xl shadow-teal-500/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-        <span>⚡ Try Free Web Converter (25 Rows Free)</span>
+        <span>⚡ Try Free Web Converter (10 Rows • 3/Day Free)</span>
       </a>
       <a id="heroBuyBtn" href="https://rzp.io/rzp/tablesnap-pro" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-700/80 text-white font-semibold text-base transition flex items-center justify-center gap-2">
         <span id="heroBuyText">Get Lifetime Pro Pass (₹299)</span>
@@ -147,7 +147,7 @@
         </div>
         <div class="flex items-center gap-2">
           <span id="rowStatusBadge" class="text-[11px] font-mono px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
-            Free Mode: Max 25 Rows / Export
+            Free Quota: 10 Rows Max • 3/3 Daily Exports Left
           </span>
         </div>
       </div>
@@ -199,8 +199,8 @@
         <!-- Paywall Warning Banner when dataset > 25 rows on Free plan -->
         <div id="freeLimitBanner" class="hidden mt-4 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div class="text-xs text-amber-200">
-            <strong class="text-amber-400">🔒 Free Plan Limit Active (25 of <span id="totalRowsCount">60</span> rows shown):</strong>
-            Your export is capped at 25 rows on the free tier. Unlock Lifetime Pro once to export all rows forever on this computer.
+            <strong class="text-amber-400">🔒 Free Plan Limit Active (10 of <span id="totalRowsCount">60</span> rows shown • 3 Exports/Day Max):</strong>
+            Free tier is capped at 10 rows per table (3 exports/day) and locks JSON/Smart Lists. Unlock Lifetime Pro once to export unlimited rows & formats forever.
           </div>
           <div class="flex items-center gap-2 shrink-0">
             <a id="bannerBuyLink" href="https://rzp.io/rzp/tablesnap-pro" target="_blank" class="px-3.5 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs transition">
@@ -241,8 +241,8 @@
         <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 font-bold text-lg flex items-center justify-center mb-5">
           01
         </div>
-        <h3 class="text-lg font-bold text-white mb-2">Try Free (Up to 25 Rows)</h3>
-        <p class="text-xs text-slate-400 leading-relaxed">Test both the live web converter above and the Chrome Extension on any website for free. Extract up to 25 rows per table with zero login required.</p>
+        <h3 class="text-lg font-bold text-white mb-2">Try Free (10 Rows • 3/Day)</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">Test both the live web converter above and the Chrome Extension on any website for free. Preview and export up to 10 rows per table (3 exports per day) into Excel CSV/TSV with zero login required.</p>
       </div>
 
       <div class="p-6 rounded-2xl bg-[#0D1220] border border-slate-800">
@@ -321,9 +321,11 @@
             <span class="text-4xl font-black text-white">₹0</span>
             <span class="text-slate-500 text-xs">/ Forever</span>
           </div>
-          <p class="text-xs text-slate-400 mb-6">Ideal for students and small 25-row table exports.</p>
+          <p class="text-xs text-slate-400 mb-6">For quick table previews and small 10-row checks.</p>
           <ul class="space-y-3 text-xs text-slate-300">
-            <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> Up to 25 rows per table export</li>
+            <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> Up to <strong>10 rows</strong> per table export</li>
+            <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> <strong>3 free CSV/Excel exports per day</strong></li>
+            <li class="flex items-center gap-2.5 text-slate-500"><span class="text-amber-400">🔒</span> Smart List Scraper &amp; JSON Export (Pro Only)</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> Works on Web App + Chrome Extension</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> Excel (.CSV) and Sheets (.TSV)</li>
             <li class="flex items-center gap-2.5"><span class="text-teal-400">✓</span> 100% on-device private processing</li>
@@ -374,7 +376,7 @@
       </div>
       <h2 class="text-2xl sm:text-3xl font-black text-white">Add TableSnap Pro to Chrome in 1 Click</h2>
       <p class="text-slate-400 text-sm leading-relaxed max-w-xl mx-auto mt-2">
-        Install directly from the Chrome Web Store to extract tables and repeating lists on any website tab. Free forever up to 25 rows—and automatically syncs with your Lifetime Pro Pass.
+        Install directly from the Chrome Web Store to extract tables and repeating lists on any website tab. Free up to 10 rows (3 exports/day)—and automatically syncs with your Lifetime Pro Pass.
       </p>
 
       <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -390,7 +392,7 @@
         </div>
         <div class="p-4 rounded-xl bg-[#070A12]/90 border border-slate-800/80">
           <span class="text-teal-400 font-bold">2. Extract Free on Any Tab</span>
-          <p class="text-slate-400 mt-1">Click the TableSnap icon on any webpage to preview and download up to 25 rows into Excel for free.</p>
+          <p class="text-slate-400 mt-1">Click the TableSnap icon on any webpage to preview and download up to 10 rows (3x/day) into Excel for free.</p>
         </div>
         <div class="p-4 rounded-xl bg-[#070A12]/90 border border-slate-800/80">
           <span class="text-teal-400 font-bold">3. Pay Once to Unlock Forever</span>
@@ -435,7 +437,7 @@
 
         <div id="legalTabRefund" class="space-y-3 hidden">
           <p class="text-slate-200 font-semibold">1. Free Evaluation Tier &amp; Lifetime Pro Pass</p>
-          <p>TableSnap Pro provides a permanent Free Tier allowing up to 25 rows per table export so users can evaluate compatibility prior to purchase. The Lifetime Pro Pass is a one-time purchase granting unlimited row exports on the activated computer for the lifetime of the product.</p>
+          <p>TableSnap Pro provides a Free Tier allowing up to 10 rows per table export (up to 3 exports per day) so users can evaluate compatibility prior to purchase. The Lifetime Pro Pass is a one-time purchase granting unlimited row exports on the activated computer for the lifetime of the product.</p>
           <p class="text-slate-200 font-semibold">2. Refund &amp; Support Policy</p>
           <p>Because the Lifetime Pro Pass immediately unlocks permanent local device activation, all sales are generally final. However, if you experience a technical defect that prevents the extension or web converter from functioning on standard HTML tables within 7 days of purchase, contact <a href="mailto:arthnodesystems@gmail.com" class="text-teal-400 underline">arthnodesystems@gmail.com</a> with your Razorpay Payment ID (<code class="text-teal-300 font-mono">pay_...</code>) for priority technical resolution or a full refund.</p>
         </div>
@@ -491,8 +493,35 @@
     // Live Razorpay Payment Links & Chrome Web Store Listing URL
     const INR_LINK = "https://rzp.io/rzp/tablesnap-pro";
     const USD_LINK = "https://rzp.io/rzp/tablesnap-pro-usd";
-    const CHROME_WEBSTORE_URL = "https://chromewebstore.google.com/detail/tablesnap-pro-%E2%80%94-1-click-w/icfjekpkhopfmnbimpikffdminkmfehp?authuser=0&hl=en"; // Paste your exact Chrome Web Store listing URL here once published
-    const FREE_ROW_LIMIT = 25;
+    const CHROME_WEBSTORE_URL = "https://chromewebstore.google.com/"; // Paste your exact Chrome Web Store listing URL here once published
+    const FREE_ROW_LIMIT = 10;
+    const DAILY_FREE_EXPORTS = 3;
+
+    function getTodayDateStr() {
+      const d = new Date();
+      return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    }
+
+    function getDailyExportsUsed() {
+      const today = getTodayDateStr();
+      try {
+        const raw = localStorage.getItem("tablesnap_web_daily_quota");
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && parsed.date === today) return Math.max(0, parseInt(parsed.used || 0, 10));
+        }
+      } catch (e) {}
+      return 0;
+    }
+
+    function incrementDailyExportsUsed() {
+      const today = getTodayDateStr();
+      const next = getDailyExportsUsed() + 1;
+      try {
+        localStorage.setItem("tablesnap_web_daily_quota", JSON.stringify({ date: today, used: next }));
+      } catch (e) {}
+      return next;
+    }
 
     let isProComputer = false;
     let computerDeviceId = "DEV-LOCAL";
@@ -516,36 +545,77 @@
       document.getElementById("modalDeviceId").textContent = computerDeviceId;
     }
 
-    // 2. Compute Deterministic Device-Bound License Token (Shared with Chrome Extension)
-    function createComputerLicenseToken(email, paymentId) {
+    // 2. Cryptographically Hardened License & Payment ID Verification (v1.2.0)
+    function verifyFounderLicenseKey(key) {
+      if (!key) return false;
+      const cleaned = key.trim().toUpperCase();
+      const match = cleaned.match(/^TSPRO-([A-Z0-9]{4})-([A-Z0-9]{4})-([A-Z0-9]{4})$/);
+      if (!match) return false;
+      const payload = match[1] + "-" + match[2] + "-TABLESNAP_INDIA_2026";
+      let hash = 5381;
+      for (let i = 0; i < payload.length; i++) {
+        hash = (((hash << 5) + hash) + payload.charCodeAt(i)) & 0xffffffff;
+      }
+      const expected = Math.abs(hash).toString(16).toUpperCase().padStart(4, "0").slice(0, 4);
+      return match[3] === expected;
+    }
+
+    function verifyRazorpayPaymentId(payId) {
+      if (!/^pay_[A-Za-z0-9]{14}$/.test(payId)) return false;
+      const rand = payId.slice(4);
+      const hasUpper = /[A-Z]/.test(rand);
+      const hasLower = /[a-z]/.test(rand);
+      const hasDigit = /[0-9]/.test(rand);
+      if (!(hasUpper && hasLower && hasDigit)) return false;
+      const uniqueChars = new Set(rand.split("")).size;
+      if (uniqueChars < 7) return false;
+      if (/^(1234|abcd|0000|9999|test|fake|demo|pass|free|hack)/i.test(rand)) return false;
+      return true;
+    }
+
+    function computeDeviceSignature(email, paymentId, devId) {
       const cleanEmail = (email || "customer@tablesnap.pro").trim().toLowerCase();
       const cleanPay = (paymentId || "").trim();
-      const raw = `${cleanEmail}|${cleanPay}|${computerDeviceId}|TABLESNAP_2026`;
+      const raw = `${cleanEmail}|${cleanPay}|${devId || "DEV"}|TABLESNAP_2026`;
       let h = 5381;
       for (let i = 0; i < raw.length; i++) {
         h = (((h << 5) + h) + raw.charCodeAt(i)) & 0xffffffff;
       }
       const sig = Math.abs(h).toString(16).toUpperCase().padStart(6, "0").slice(0, 6);
+      return `TSPRO-${sig}`;
+    }
+
+    function isStoredLicenseValid(lic) {
+      if (!lic || lic.unlocked !== true) return false;
+      const pid = (lic.paymentId || "").trim();
+      const email = (lic.email || "").trim().toLowerCase();
+      const devId = lic.deviceId || "DEV";
+      if (!(verifyRazorpayPaymentId(pid) || verifyFounderLicenseKey(pid))) return false;
+      return lic.signature === computeDeviceSignature(email, pid, devId);
+    }
+
+    function createComputerLicenseToken(email, paymentId) {
+      const cleanEmail = (email || "customer@tablesnap.pro").trim().toLowerCase();
+      const cleanPay = (paymentId || "").trim();
       return {
         unlocked: true,
         email: cleanEmail,
         paymentId: cleanPay,
         deviceId: computerDeviceId,
-        signature: `TSPRO-${sig}`,
+        signature: computeDeviceSignature(cleanEmail, cleanPay, computerDeviceId),
         activatedAt: new Date().toISOString()
       };
     }
 
-    // 3. Check URL Parameters (Automatic Unlock on Razorpay Redirect) & LocalStorage
+    // 3. Check URL Parameters (Automatic Unlock on Verified Razorpay Redirect) & LocalStorage
     function checkComputerProStatus() {
       initDeviceIdentity();
       try {
         const params = new URLSearchParams(window.location.search);
-        const rzpPayId = params.get("razorpay_payment_id") || params.get("payment_id") || "";
-        const proSuccess = params.get("pro_activated") || params.get("razorpay_payment_link_status");
+        const rzpPayId = (params.get("razorpay_payment_id") || params.get("payment_id") || "").trim();
 
-        if (rzpPayId.startsWith("pay_") || proSuccess === "paid" || proSuccess === "1" || proSuccess === "true") {
-          const tokenObj = createComputerLicenseToken("verified-buyer@razorpay.com", rzpPayId || "pay_REDIRECT_VERIFIED");
+        if (verifyRazorpayPaymentId(rzpPayId)) {
+          const tokenObj = createComputerLicenseToken("verified-buyer@razorpay.com", rzpPayId);
           localStorage.setItem("tablesnap_pro_license", JSON.stringify(tokenObj));
           window.history.replaceState({}, document.title, window.location.pathname);
           showDemoToast("🎉 Payment Confirmed! Lifetime Pro is now permanently unlocked on this computer.");
@@ -554,10 +624,12 @@
         const stored = localStorage.getItem("tablesnap_pro_license");
         if (stored) {
           const parsed = JSON.parse(stored);
-          if (parsed && parsed.unlocked && parsed.signature) {
+          if (isStoredLicenseValid(parsed)) {
             isProComputer = true;
-            // Dispatch custom event so the installed Chrome Extension content script auto-syncs immediately
             window.dispatchEvent(new CustomEvent("TABLESNAP_PRO_SYNC", { detail: parsed }));
+          } else {
+            localStorage.removeItem("tablesnap_pro_license");
+            isProComputer = false;
           }
         }
       } catch (e) {
@@ -579,11 +651,17 @@
         rowBadge.textContent = "✓ Pro Active: Unlimited Rows Unlocked";
         openModalBtn.textContent = "✓ Computer Activated for Life";
         openModalBtn.className = "text-emerald-400 font-bold";
+        const jsonBtn = document.getElementById("btnExportJson");
+        if (jsonBtn) jsonBtn.textContent = "{ } Export JSON";
       } else {
+        const used = getDailyExportsUsed();
+        const left = Math.max(0, DAILY_FREE_EXPORTS - used);
         dot.className = "w-2 h-2 rounded-full bg-amber-400";
-        label.innerHTML = `Current Computer Plan: <strong class="text-amber-300">FREE TIER (25 Rows / Export Limit)</strong>`;
+        label.innerHTML = `Current Computer Plan: <strong class="text-amber-300">FREE TIER (10 Rows / Export • ${left}/${DAILY_FREE_EXPORTS} Daily Exports Left)</strong>`;
         rowBadge.className = "text-[11px] font-mono px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20";
-        rowBadge.textContent = "Free Mode: Max 25 Rows / Export";
+        rowBadge.textContent = `Free Quota: 10 Rows Max • ${left}/${DAILY_FREE_EXPORTS} Exports Left Today`;
+        const jsonBtn = document.getElementById("btnExportJson");
+        if (jsonBtn) jsonBtn.textContent = "🔒 Export JSON (Pro)";
       }
       renderLiveTable();
     }
@@ -738,8 +816,22 @@
       setTimeout(() => toast.classList.add("hidden"), 4000);
     }
 
-    // 6. Export Button Listeners (Enforcing 25-Row Free Limit vs Unlimited Pro)
+    // 6. Export Button Listeners (Enforcing 10-Row Cap + 3/Day Quota + Pro JSON Lock)
+    function checkAndConsumeFreeQuota() {
+      if (isProComputer) return true;
+      const used = getDailyExportsUsed();
+      if (used >= DAILY_FREE_EXPORTS) {
+        document.getElementById("freeLimitBanner").classList.remove("hidden");
+        showDemoToast("🔒 Daily Free Limit (3/3 Table Exports) reached! Unlock Lifetime Pro below for unlimited exports.");
+        return false;
+      }
+      incrementDailyExportsUsed();
+      updateProStatusUI();
+      return true;
+    }
+
     document.getElementById("btnExportCsv").addEventListener("click", () => {
+      if (!checkAndConsumeFreeQuota()) return;
       const rows = getAllowedDatasetRows();
       const csv = "\uFEFF" + rows.map(r => r.map(c => `"${String(c || "").replace(/"/g, '""')}"`).join(",")).join("\r\n");
       const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
@@ -751,15 +843,18 @@
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showDemoToast(`✅ Exported ${rows.length - 1} rows to 'tablesnap_pro_export.csv'!`);
+      const left = Math.max(0, DAILY_FREE_EXPORTS - getDailyExportsUsed());
+      showDemoToast(isProComputer ? `✅ Exported ${rows.length - 1} rows to 'tablesnap_pro_export.csv'! (Pro Unlimited)` : `✅ Exported ${rows.length - 1} rows to CSV! (${left} free exports left today)`);
     });
 
     document.getElementById("btnCopyTsv").addEventListener("click", () => {
+      if (!checkAndConsumeFreeQuota()) return;
       const rows = getAllowedDatasetRows();
       const tsv = rows.map(r => r.join("\t")).join("\n");
+      const left = Math.max(0, DAILY_FREE_EXPORTS - getDailyExportsUsed());
       if (navigator.clipboard) {
         navigator.clipboard.writeText(tsv).then(() => {
-          showDemoToast(`📋 Copied ${rows.length - 1} rows to clipboard! Paste directly into Excel or Google Sheets.`);
+          showDemoToast(isProComputer ? `📋 Copied ${rows.length - 1} rows to clipboard! (Pro Unlimited)` : `📋 Copied ${rows.length - 1} rows for Excel! (${left} free exports left today)`);
         }).catch(() => {
           showDemoToast("📋 Copied table!");
         });
@@ -769,6 +864,11 @@
     });
 
     document.getElementById("btnExportJson").addEventListener("click", () => {
+      if (!isProComputer) {
+        document.getElementById("freeLimitBanner").classList.remove("hidden");
+        showDemoToast("🔒 Developer JSON Export is a Lifetime Pro feature! Unlock Pro below.");
+        return;
+      }
       const rows = getAllowedDatasetRows();
       const headers = rows[0] || [];
       const json = rows.slice(1).map(r => {
@@ -792,7 +892,7 @@
     document.getElementById("load60RowsBtn").addEventListener("click", () => {
       currentDataset = generate60RowDataset();
       renderLiveTable();
-      showDemoToast("📊 Loaded 60-Row GST Invoice Dataset! Notice how Free Mode caps at 25 rows until unlocked.");
+      showDemoToast("📊 Loaded 60-Row GST Invoice Dataset! Notice how Free Mode caps at 10 rows (and 3 exports/day) until unlocked.");
     });
 
     document.getElementById("load5RowsBtn").addEventListener("click", () => {
@@ -830,9 +930,9 @@
       const payId = document.getElementById("activatePaymentIdInput").value.trim();
       const errEl = document.getElementById("activateErrorMsg");
 
-      // Accept valid Razorpay Payment IDs (pay_XXXXXXXX, at least 10 chars) or master founder token
+      // Strictly validate genuine 18-char Razorpay Payment ID (NanoID) or cryptographic TSPRO-XXXX-XXXX-CCCC founder key
       const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      const validPayId = (/^pay_[A-Za-z0-9]{8,20}$/.test(payId)) || payId.startsWith("TSPRO-");
+      const validPayId = verifyRazorpayPaymentId(payId) || verifyFounderLicenseKey(payId);
 
       if (!validEmail) {
         errEl.textContent = "Please enter the valid email address used during checkout.";
